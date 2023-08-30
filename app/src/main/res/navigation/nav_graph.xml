@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/moviesFragment">
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.saverone.exercise.ui.MoviesFragment"
+        android:label="fragment_movies"
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_moviesFragment_to_movieInfoFragment"
+            app:destination="@id/movieInfoFragment" >
+            <argument
+                android:name="currentID"
+                app:argType="integer"
+                />
+            <argument
+                android:name="currentTitle"
+                app:argType="string"
+                />
+            <argument
+                android:name="currentPoster"
+                app:argType="string"
+                />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/movieInfoFragment"
+        android:name="com.saverone.exercise.ui.MovieInfoFragment"
+        android:label="fragment_movie_info" >
+        <action
+            android:id="@+id/action_movieInfoFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment"
+            app:popUpTo="@id/moviesFragment">
+        </action>
+    </fragment>
+</navigation>
